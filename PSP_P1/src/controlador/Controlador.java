@@ -13,7 +13,7 @@ public class Controlador implements ActionListener, WindowListener{
 
 	public Vista vista;
 	public Modelo modelo;	
-    public Process p;
+	public Process p;
 
 	public Controlador(Vista vista, Modelo modelo) {
 		this.vista = vista;
@@ -73,21 +73,47 @@ public class Controlador implements ActionListener, WindowListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object fuente = e.getSource();
-
 		if (fuente.equals(vista.btnBloc)) {
 			try {
-		        p = Runtime.getRuntime().exec("notepad.exe");
-		        modelo.añadir("Bloc de notas", p.pid(), vista);
-		        vista.btnBloc.setEnabled(false);
-		        while(p.isAlive()) {
-		        }
-				modelo.matarExterno(vista, "Bloc de notas");
-		        vista.btnBloc.setEnabled(true);
+				p = Runtime.getRuntime().exec("notepad.exe");
+				modelo.añadir("Bloc de notas", p, vista);
+				new Thread(new Principal()).start();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
+		if (fuente.equals(vista.btnPaint)) {
+			try {
+				p = Runtime.getRuntime().exec("mspaint.exe");
+				modelo.añadir("Paint", p, vista);
+				new Thread(new Principal()).start();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		if (fuente.equals(vista.btnJuego)) {
+			try {
+				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/Juego.jar");
+				modelo.añadir("Juego", p, vista);
+				new Thread(new Principal()).start();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		if (fuente.equals(vista.btnGestion)) {
+			try {
+				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/ProgramaDeGestion.jar");
+				modelo.añadir("Programa de gestion", p, vista);
+				new Thread(new Principal()).start();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
 		if (fuente.equals(vista.btnProcesos)) {
 			modelo.matar(vista);
 		}

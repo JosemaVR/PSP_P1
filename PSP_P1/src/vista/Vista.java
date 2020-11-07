@@ -28,6 +28,7 @@ public class Vista extends JFrame {
 	public ArrayList<String> procesos = new ArrayList<String>();
 	
 	public Vista() {
+		setTitle("PSP - Practica 1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
