@@ -79,6 +79,10 @@ public class Controlador implements ActionListener, WindowListener{
 		        p = Runtime.getRuntime().exec("notepad.exe");
 		        modelo.añadir("Bloc de notas", p.pid(), vista);
 		        vista.btnBloc.setEnabled(false);
+		        while(p.isAlive()) {
+		        }
+				modelo.matarExterno(vista, "Bloc de notas");
+		        vista.btnBloc.setEnabled(true);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

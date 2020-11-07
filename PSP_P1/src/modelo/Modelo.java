@@ -40,4 +40,33 @@ public class Modelo {
 		}
 	}
 
+	public void matarExterno(Vista vista, String string) {
+		for(int i=0; i<vista.list.countItems(); i++) {
+			if(vista.list.getItem(i).toString().contains(string)) {
+				String cmd = "taskkill /F /PID " + vista.procesos.get(i).split("//")[1];
+				switch (vista.procesos.get(i).split("//")[0]) {
+					case "Bloc de notas":
+						vista.btnBloc.setEnabled(true);
+						break;
+					case "Paint":
+						vista.btnBloc.setEnabled(true);
+						break;
+					case "Juego":
+						vista.btnBloc.setEnabled(true);
+						break;
+					case "Programa de gestion":
+						vista.btnBloc.setEnabled(true);
+						break;
+				}
+				vista.list.remove(i);
+				try {
+					Runtime.getRuntime().exec(cmd);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 }
