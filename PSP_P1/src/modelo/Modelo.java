@@ -1,6 +1,9 @@
 package modelo;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import vista.Vista;
 
@@ -53,5 +56,26 @@ public class Modelo {
 				}
 			}
 		}
+	}
+
+	public void ejecutarCmd(Process p, Vista vista) {
+		BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		InputStream is = p.getInputStream();
+		InputStreamReader isr = new InputStreamReader(is);
+		BufferedReader br = new BufferedReader(isr);
+		String line;
+		vista.areaCmd.setText("");
+		try {
+			while ((line = br.readLine()) != null)
+			{
+				System.out.println(line);
+				vista.areaCmd.setText(vista.areaCmd.getText() + line + "\n");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
 	}
 }

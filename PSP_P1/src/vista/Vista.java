@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -26,7 +27,8 @@ public class Vista extends JFrame {
 	public ArrayList<String> lista = new ArrayList<String>();
 	public List list = new List();
 	public ArrayList<String> procesos = new ArrayList<String>();
-	
+	public JScrollPane scroll = new JScrollPane(areaCmd);
+
 	public Vista() {
 		setTitle("PSP - Practica 1");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,9 +53,10 @@ public class Vista extends JFrame {
 		btnPaint.setBounds(330, 130, 140, 25);
 		contentPane.add(btnPaint);
 		
-		areaCmd.setBounds(10, 50, 300, 300);
-		contentPane.add(areaCmd);
+		scroll.setBounds(10, 50, 300, 300);
+		//contentPane.add(areaCmd);
 		areaCmd.setEditable(false);
+		contentPane.add(scroll);
 		
 		btnEjecutar.setBounds(170, 10, 140, 25);
 		contentPane.add(btnEjecutar);

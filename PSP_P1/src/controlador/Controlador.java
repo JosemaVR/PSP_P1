@@ -113,7 +113,16 @@ public class Controlador implements ActionListener, WindowListener{
 				e1.printStackTrace();
 			}
 		}
-		
+		if(fuente.equals(vista.btnEjecutar)) {
+			try {
+				p = Runtime.getRuntime().exec("cmd /c " + vista.txtCmd.getText());
+				System.out.println("cmd " + vista.txtCmd.getText());
+				modelo.ejecutarCmd(p, vista);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 		if (fuente.equals(vista.btnProcesos)) {
 			modelo.matar(vista);
 		}

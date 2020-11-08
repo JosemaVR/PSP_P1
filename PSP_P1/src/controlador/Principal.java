@@ -58,6 +58,7 @@ public class Principal implements Runnable {
 						is.close();
 					}
 				}
+				Thread.currentThread().stop();
 			}
 		}
 		catch (InterruptedException e) {
