@@ -34,3 +34,27 @@ INFO: [Inicio de programa]
 nov. 07, 2020 11:53:01 P. M. practica.Log escribirLog
 INFO: [Inicio de programa] 
 
+nov. 08, 2020 12:17:58 P. M. practica.Log escribirLog
+INFO: [Inicio de programa] 
+
+nov. 09, 2020 9:29:53 A. M. practica.Log escribirLog
+INFO: [Inicio de programa] 
+
+nov. 09, 2020 9:33:15 A. M. practica.Log escribirLog
+INFO: [Inicio de programa] 
+
+nov. 09, 2020 9:33:21 A. M. practica.Log escribirLog
+INFO: [Apertura de menú] 
+
+nov. 09, 2020 9:33:24 A. M. practica.Log escribirLog
+INFO: [SELECT * FROM clientes ORDER BY apellido1Cliente, apellido2Cliente] 
+
+nov. 09, 2020 9:33:24 A. M. practica.Log escribirLog
+INFO: [Accediendo a servicio de consulta de clientes] 
+
+nov. 09, 2020 9:33:43 A. M. practica.Log escribirLog
+INFO: [Inicio de programa] 
+
+nov. 09, 2020 9:36:14 A. M. practica.Log escribirLog
+INFO: [Inicio de programa] 
+

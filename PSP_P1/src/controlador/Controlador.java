@@ -14,6 +14,8 @@ public class Controlador implements ActionListener, WindowListener{
 	public Vista vista;
 	public Modelo modelo;	
 	public Process p;
+	public Thread t1, t2, t3, t4;
+
 
 	public Controlador(Vista vista, Modelo modelo) {
 		this.vista = vista;
@@ -25,7 +27,7 @@ public class Controlador implements ActionListener, WindowListener{
 		vista.btnPaint.addActionListener(this);
 		vista.btnProcesos.addActionListener(this);
 		vista.btnEjecutar.addActionListener(this);
-		
+
 		vista.addWindowListener(this);
 	}
 
@@ -77,7 +79,8 @@ public class Controlador implements ActionListener, WindowListener{
 			try {
 				p = Runtime.getRuntime().exec("notepad.exe");
 				modelo.añadir("Bloc de notas", p, vista);
-				new Thread(new Principal()).start();
+				t1 = new Thread(new Principal(), "Hilo bloc de notas");
+				t1.start();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -87,7 +90,8 @@ public class Controlador implements ActionListener, WindowListener{
 			try {
 				p = Runtime.getRuntime().exec("mspaint.exe");
 				modelo.añadir("Paint", p, vista);
-				new Thread(new Principal()).start();
+				t2 = new Thread(new Principal(), "Hilo paint");
+				t2.start();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -97,7 +101,8 @@ public class Controlador implements ActionListener, WindowListener{
 			try {
 				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/Juego.jar");
 				modelo.añadir("Juego", p, vista);
-				new Thread(new Principal()).start();
+				t3 = new Thread(new Principal(), "Hilo juego");
+				t3.start();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -107,7 +112,8 @@ public class Controlador implements ActionListener, WindowListener{
 			try {
 				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/ProgramaDeGestion.jar");
 				modelo.añadir("Programa de gestion", p, vista);
-				new Thread(new Principal()).start();
+				t4 = new Thread(new Principal(),"Hilo gestion");
+				t4.start();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -116,7 +122,6 @@ public class Controlador implements ActionListener, WindowListener{
 		if(fuente.equals(vista.btnEjecutar)) {
 			try {
 				p = Runtime.getRuntime().exec("cmd /c " + vista.txtCmd.getText());
-				System.out.println("cmd " + vista.txtCmd.getText());
 				modelo.ejecutarCmd(p, vista);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block

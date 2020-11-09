@@ -68,7 +68,6 @@ public class Modelo {
 		try {
 			while ((line = br.readLine()) != null)
 			{
-				System.out.println(line);
 				vista.areaCmd.setText(vista.areaCmd.getText() + line + "\n");
 			}
 		} catch (IOException e) {

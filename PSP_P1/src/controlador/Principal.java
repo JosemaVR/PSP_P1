@@ -18,11 +18,11 @@ public class Principal implements Runnable {
 
 	public void run() {
 		try {
-			for(int i = 0; i < 100; i++) {
+			while(0!=vista.procesos.size()) {
 				Thread.sleep(1500);
 				for(int k=0; k<vista.procesos.size(); k++) {
-					if(vista.procesos.size()!=0) {
-						String cmd = "tasklist /FI \"PID eq " + vista.procesos.get(k).split("//")[1] +"\"";
+					String cmd = "cmd /c tasklist /FI \"PID eq " + vista.procesos.get(k).split("//")[1] +"\"";
+					if(vista.procesos.size()!=0) {	
 						Process p = Runtime.getRuntime().exec(cmd);
 						BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
 						InputStream is = p.getInputStream();
@@ -58,8 +58,8 @@ public class Principal implements Runnable {
 						is.close();
 					}
 				}
-				Thread.currentThread().stop();
 			}
+			Thread.currentThread().stop();
 		}
 		catch (InterruptedException e) {
 		} catch (IOException e) {
