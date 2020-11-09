@@ -9,7 +9,7 @@ import vista.Vista;
 
 public class Modelo {
 
-	public void añadir(String string, Process process, Vista vista) {
+	public void anhadir(String string, Process process, Vista vista) {
 		vista.list.add(string);
 		vista.procesos.add(string + "//" + process.pid());
 		switch (vista.procesos.get(vista.procesos.size()-1).split("//")[0]) {

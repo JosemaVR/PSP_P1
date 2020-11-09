@@ -78,7 +78,7 @@ public class Controlador implements ActionListener, WindowListener{
 		if (fuente.equals(vista.btnBloc)) {
 			try {
 				p = Runtime.getRuntime().exec("notepad.exe");
-				modelo.añadir("Bloc de notas", p, vista);
+				modelo.anhadir("Bloc de notas", p, vista);
 				t1 = new Thread(new Principal(), "Hilo bloc de notas");
 				t1.start();
 			} catch (IOException e1) {
@@ -89,7 +89,7 @@ public class Controlador implements ActionListener, WindowListener{
 		if (fuente.equals(vista.btnPaint)) {
 			try {
 				p = Runtime.getRuntime().exec("mspaint.exe");
-				modelo.añadir("Paint", p, vista);
+				modelo.anhadir("Paint", p, vista);
 				t2 = new Thread(new Principal(), "Hilo paint");
 				t2.start();
 			} catch (IOException e1) {
@@ -100,7 +100,7 @@ public class Controlador implements ActionListener, WindowListener{
 		if (fuente.equals(vista.btnJuego)) {
 			try {
 				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/Juego.jar");
-				modelo.añadir("Juego", p, vista);
+				modelo.anhadir("Juego", p, vista);
 				t3 = new Thread(new Principal(), "Hilo juego");
 				t3.start();
 			} catch (IOException e1) {
@@ -111,7 +111,7 @@ public class Controlador implements ActionListener, WindowListener{
 		if (fuente.equals(vista.btnGestion)) {
 			try {
 				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/ProgramaDeGestion.jar");
-				modelo.añadir("Programa de gestion", p, vista);
+				modelo.anhadir("Programa de gestion", p, vista);
 				t4 = new Thread(new Principal(),"Hilo gestion");
 				t4.start();
 			} catch (IOException e1) {
