@@ -34,7 +34,7 @@ public class Principal implements Runnable {
 						br.readLine();
 						if ((line = br.readLine()) == null)
 						{
-							if(vista.procesos.size()!=0) {
+							if(vista.procesos.size()!=0 && vista.procesos.size()>=k) {
 								switch (vista.procesos.get(k).split("//")[0]) {
 								case "Bloc de notas":
 									vista.btnBloc.setEnabled(true);
@@ -64,7 +64,7 @@ public class Principal implements Runnable {
 		catch (InterruptedException e) {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
