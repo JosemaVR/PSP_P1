@@ -99,7 +99,7 @@ public class Controlador implements ActionListener, WindowListener{
 		}
 		if (fuente.equals(vista.btnJuego)) {
 			try {
-				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/Juego.jar");
+				p = Runtime.getRuntime().exec("java.exe -jar Juego.jar");
 				modelo.anhadir("Juego", p, vista);
 				t3 = new Thread(new Principal(), "Hilo juego");
 				t3.start();
@@ -110,7 +110,7 @@ public class Controlador implements ActionListener, WindowListener{
 		}
 		if (fuente.equals(vista.btnGestion)) {
 			try {
-				p = Runtime.getRuntime().exec("java.exe -jar C://Users/josev/Desktop/ProgramaDeGestion.jar");
+				p = Runtime.getRuntime().exec("java.exe -jar ProgramaDeGestion.jar");
 				modelo.anhadir("Programa de gestion", p, vista);
 				t4 = new Thread(new Principal(),"Hilo gestion");
 				t4.start();
@@ -127,7 +127,7 @@ public class Controlador implements ActionListener, WindowListener{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}
+ 		}
 		if (fuente.equals(vista.btnProcesos)) {
 			modelo.matar(vista);
 		}

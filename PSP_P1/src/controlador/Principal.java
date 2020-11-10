@@ -64,7 +64,8 @@ public class Principal implements Runnable {
 		catch (InterruptedException e) {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
+		} catch(IndexOutOfBoundsException e2) {
 		}
 	}
 
