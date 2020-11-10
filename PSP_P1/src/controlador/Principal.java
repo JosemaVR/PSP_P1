@@ -70,5 +70,6 @@ public class Principal implements Runnable {
 
 	public static void main(String[] args) {
 		new Controlador(vista, modelo);
+		vista.txtCmd.grabFocus();
 	}
 }

@@ -59,22 +59,30 @@ public class Modelo {
 	}
 
 	public void ejecutarCmd(Process p, Vista vista) {
-		BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		InputStream is = p.getInputStream();
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
 		String line;
 		vista.areaCmd.setText("");
 		try {
-			while ((line = br.readLine()) != null)
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			while (br.ready()==true && (line = br.readLine()) != null)
 			{
 				vista.areaCmd.setText(vista.areaCmd.getText() + line + "\n");
 			}
+			is.close();
+			isr.close();
+			br.close();
+			vista.txtCmd.setText("");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 
 	}
 }
