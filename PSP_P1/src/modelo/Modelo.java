@@ -28,6 +28,7 @@ public class Modelo {
 		}
 	}
 
+	
 	public void matar(Vista vista) {
 		for(int i=0; i<vista.list.countItems(); i++) {
 			if(vista.list.getSelectedItem()!=null) {
