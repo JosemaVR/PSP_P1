@@ -30,7 +30,7 @@ public class Modelo {
 
 	public void matar(Vista vista) {
 		for(int i=0; i<vista.list.countItems(); i++) {
-			if(vista.list.getSelectedItem()==null) {
+			if(vista.list.getSelectedItem()!=null) {
 				if(vista.list.getItem(i).toString().contains(vista.list.getSelectedItem())) {
 					String cmd = "taskkill /F /PID " + vista.procesos.get(i).split("//")[1];
 					switch (vista.procesos.get(i).split("//")[0]) {
